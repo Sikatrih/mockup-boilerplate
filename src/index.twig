@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ package.name }}</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  </head>
+
+  <style>
+    .ex-layout {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ex-page {
+      position: relative;
+      display: block;
+      min-width: 320px;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: -1px;
+      background-color: #fff;
+      border: 1px solid rgba(0,0,0,.125);
+      width: 100%;
+      color: #495057;
+      text-decoration: none;
+    }
+
+    .ex-page:hover {
+      color: #495057;
+      text-decoration: none;
+      background-color: #f8f9fa;
+    }
+
+    .ex-page:first-child {
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+
+    .ex-page:last-child {
+      margin-bottom: 0;
+      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+  </style>
+
+  <body>
+    <div class="ex-layout">
+      <nav class="ex-pages">
+        {% for page in pages %}
+        <a class="ex-page" href="{{ page }}.html">{{ page }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </body>
+</html>
