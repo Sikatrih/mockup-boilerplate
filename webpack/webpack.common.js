@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const path = require('path');
 const paths = require('./paths');
@@ -75,7 +76,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|ico|jpe?g|png|svg|webp)$/,
+        test: /\.(gif|ico|jpe?g|png|webp)$/, // svg
         use: {
           loader: 'file-loader',
           options: {
@@ -85,6 +86,19 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              // publicPath: '/icons'
+            }
+          },
+          'svg-transform-loader',
+          'svgo-loader'
+        ]
+      }
     ],
   },
   plugins: [
@@ -111,5 +125,6 @@ module.exports = {
         minify: false
       });
     }),
+    new SpriteLoaderPlugin()
   ],
 };

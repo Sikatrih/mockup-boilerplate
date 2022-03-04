@@ -11,11 +11,8 @@
       {% include "../partial/header.twig" %}
 
       <main class="content">
-
+        {% block content %}{% endblock %}
       </main>
-
-      {# {% block body %}
-      {% endblock %} #}
 
       {% include "../partial/footer.twig" %}
     </div>
