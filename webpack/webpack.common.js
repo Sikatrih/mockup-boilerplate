@@ -76,7 +76,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|ico|jpe?g|png|webp)$/, // svg
+        test: /\.(gif|ico|jpe?g|png|webp)$/,
         use: {
           loader: 'file-loader',
           options: {
@@ -91,14 +91,12 @@ module.exports = {
         use: [
           {
             loader: 'svg-sprite-loader',
-            options: {
-              // publicPath: '/icons'
-            }
+            options: {}
           },
           'svg-transform-loader',
           'svgo-loader'
         ]
-      }
+      },
     ],
   },
   plugins: [
